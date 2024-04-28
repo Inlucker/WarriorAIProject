@@ -7,6 +7,7 @@
 #include "InputActionValue.h"
 #include "Components/HealthComponent.h"
 #include "Components/AttackComponent.h"
+#include "Components/HealPotionsComponent.h"
 #include "WarriorAIProjectCharacter.generated.h"
 
 
@@ -70,5 +71,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Attack", meta = (AllowPrivateAccess = "true"))
 	UAttackComponent* AttackComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Potions", meta = (AllowPrivateAccess = "true"))
+	UHealPotionsComponent* HealPotionsComponent;
 };
 
