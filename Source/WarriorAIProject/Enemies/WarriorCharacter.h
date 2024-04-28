@@ -28,6 +28,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual FVector GetPatrolMidLocation() const override;
+
+	virtual float SetMoveSpeed(EMoveSpeed speed) override;
 private:
 	FVector startPos;
 };

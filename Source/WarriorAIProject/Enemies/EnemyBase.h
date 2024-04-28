@@ -6,6 +6,15 @@
 #include "UObject/Interface.h"
 #include "EnemyBase.generated.h"
 
+UENUM(BlueprintType)
+enum class EMoveSpeed : uint8
+{
+	Idle        UMETA(DisplayName = "Idle"),
+	Walking     UMETA(DisplayName = "Walking"),
+	Jogging     UMETA(DisplayName = "Jogging"),
+	Sprinting   UMETA(DisplayName = "Sprinting")
+};
+
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI, NotBlueprintable)
 class UEnemyBase : public UInterface
@@ -24,4 +33,7 @@ class WARRIORAIPROJECT_API IEnemyBase
 public:
 	UFUNCTION(BlueprintCallable, Category = "EnemyBase")
 	virtual FVector GetPatrolMidLocation() const = 0;
+
+	UFUNCTION(BlueprintCallable, Category = "EnemyBase")
+	virtual float SetMoveSpeed(EMoveSpeed speed) = 0;
 };
