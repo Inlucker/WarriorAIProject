@@ -2,6 +2,7 @@
 
 
 #include "WarriorCharacter.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AWarriorCharacter::AWarriorCharacter()
@@ -15,7 +16,8 @@ AWarriorCharacter::AWarriorCharacter()
 void AWarriorCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	startPos = GetActorLocation();	
 }
 
 // Called every frame
@@ -30,5 +32,39 @@ void AWarriorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+FVector AWarriorCharacter::GetPatrolMidLocation() const
+{
+	return startPos;
+}
+
+float AWarriorCharacter::SetMoveSpeed(EMoveSpeed speed)
+{
+	float newSpeed = -1;
+
+	UCharacterMovementComponent* charMoveComp = FindComponentByClass<UCharacterMovementComponent>();
+	if (charMoveComp)
+	{
+		switch (speed)
+		{
+		case EMoveSpeed::Idle:
+			newSpeed = 0;
+			break;
+		case EMoveSpeed::Walking:
+			newSpeed = 100;
+			break;
+		case EMoveSpeed::Jogging:
+			newSpeed = 300;
+			break;
+		case EMoveSpeed::Sprinting:
+			newSpeed = 500;
+			break;
+		}
+
+		charMoveComp->MaxWalkSpeed = newSpeed;
+	}
+
+	return newSpeed;
 }
 
