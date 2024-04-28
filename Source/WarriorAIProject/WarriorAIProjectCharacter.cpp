@@ -52,6 +52,7 @@ AWarriorAIProjectCharacter::AWarriorAIProjectCharacter()
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 	AttackComponent = CreateDefaultSubobject<UAttackComponent>(TEXT("AttackComponent"));
+	HealPotionsComponent = CreateDefaultSubobject<UHealPotionsComponent>(TEXT("HealPotionsComponent"));
 }
 
 void AWarriorAIProjectCharacter::BeginPlay()
