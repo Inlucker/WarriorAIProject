@@ -44,6 +44,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	bool IsEquiped();
 
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	void SetIsEquiped(bool val);
+
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Weapon")
 	FOnEquipDelegate OnEquip;

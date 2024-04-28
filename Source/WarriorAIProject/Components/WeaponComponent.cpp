@@ -39,7 +39,6 @@ void UWeaponComponent::CallEquip()
 
 void UWeaponComponent::CallEquipFinished()
 {
-	_isEquiped = true;
 	OnEquipFinished.Broadcast();
 }
 
@@ -50,12 +49,16 @@ void UWeaponComponent::CallUnequip()
 
 void UWeaponComponent::CallUnequipFinished()
 {
-	_isEquiped = false;
 	OnUnequipFinished.Broadcast();
 }
 
 bool UWeaponComponent::IsEquiped()
 {
 	return _isEquiped;
+}
+
+void UWeaponComponent::SetIsEquiped(bool val)
+{
+	_isEquiped = val;
 }
 

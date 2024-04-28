@@ -7,6 +7,7 @@
 #include "EnemyBase.h"
 #include "../Components/HealthComponent.h"
 #include "../Components/AttackComponent.h"
+#include "../Components/WeaponComponent.h"
 #include "WarriorCharacter.generated.h"
 
 UCLASS()
@@ -39,6 +40,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Attack", meta = (AllowPrivateAccess = "true"))
 	UAttackComponent* AttackComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon", meta = (AllowPrivateAccess = "true"))
+	UWeaponComponent* WeaponComponent;
 
 private:
 	FVector startPos;
