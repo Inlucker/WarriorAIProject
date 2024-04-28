@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "Perception/AIPerceptionComponent.h"
 #include "AICEnemyBase.generated.h"
 
 UENUM(BlueprintType)
@@ -25,9 +26,27 @@ class WARRIORAIPROJECT_API AAICEnemyBase : public AAIController
 	GENERATED_BODY()
 
 public:
+  AAICEnemyBase();
+
   UFUNCTION(BlueprintCallable, Category = "State")
   void SetStateAsPassive();
 
   UFUNCTION(BlueprintCallable, Category = "State")
   void SetStateAsDead();
+
+  UFUNCTION(BlueprintCallable, Category = "State")
+  void SetStateAsAttacking(AActor* AttackTarget);
+
+  UFUNCTION(BlueprintCallable, Category = "State")
+  void SetStateAsInvestigating(FVector location);
+
+  UFUNCTION(BlueprintCallable, Category = "State")
+  EStateEnemyBase GetCurrentState();
+
+protected:
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Perception")
+  UAIPerceptionComponent* AIPerceptionComponent;
+
+  UFUNCTION()
+  void HandleSense(AActor* Actor, FAIStimulus Stimulus);
 };

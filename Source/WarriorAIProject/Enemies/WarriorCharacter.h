@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "EnemyBase.h"
+#include "../Components/HealthComponent.h"
+#include "../Components/AttackComponent.h"
+#include "../Components/WeaponComponent.h"
 #include "WarriorCharacter.generated.h"
 
 UCLASS()
@@ -30,6 +33,17 @@ public:
 	virtual FVector GetPatrolMidLocation() const override;
 
 	virtual float SetMoveSpeed(EMoveSpeed speed) override;
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Health", meta = (AllowPrivateAccess = "true"))
+	UHealthComponent* HealthComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Attack", meta = (AllowPrivateAccess = "true"))
+	UAttackComponent* AttackComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon", meta = (AllowPrivateAccess = "true"))
+	UWeaponComponent* WeaponComponent;
+
 private:
 	FVector startPos;
 };
