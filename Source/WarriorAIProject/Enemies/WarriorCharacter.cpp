@@ -15,7 +15,8 @@ AWarriorCharacter::AWarriorCharacter()
 void AWarriorCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	startPos = GetActorLocation();	
 }
 
 // Called every frame
@@ -30,5 +31,10 @@ void AWarriorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+FVector AWarriorCharacter::GetPatrolMidLocation() const
+{
+	return startPos;
 }
 

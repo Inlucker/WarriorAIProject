@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "EnemyBase.h"
 #include "WarriorCharacter.generated.h"
 
 UCLASS()
-class WARRIORAIPROJECT_API AWarriorCharacter : public ACharacter
+class WARRIORAIPROJECT_API AWarriorCharacter : public ACharacter, public IEnemyBase
 {
 	GENERATED_BODY()
 
@@ -26,4 +27,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	virtual FVector GetPatrolMidLocation() const override;
+private:
+	FVector startPos;
 };
