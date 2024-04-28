@@ -11,9 +11,7 @@ int UBTSeqAttack::GetPriority(AAIController* OwnerComp) const
   {
     UAttackComponent* AttackComp = Pawn->FindComponentByClass<UAttackComponent>();
     if (AttackComp)
-    {
       return AttackComp->GetPriority();
-    }
   }
   return -1;
 }
