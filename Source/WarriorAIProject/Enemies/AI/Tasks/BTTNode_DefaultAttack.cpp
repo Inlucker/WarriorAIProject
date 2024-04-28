@@ -14,7 +14,6 @@ EBTNodeResult::Type UBTTNode_DefaultAttack::ExecuteTask(UBehaviorTreeComponent& 
     UAttackComponent* AttackComp = Pawn->FindComponentByClass<UAttackComponent>();
     if (AttackComp)
     {
-      //baseEnemy->Attack();
       AttackComp->CallAttack();
       AttackComp->OnAttackFinished.AddDynamic(this, &UBTTNode_DefaultAttack::OnAttackFinished);
       return EBTNodeResult::InProgress;
