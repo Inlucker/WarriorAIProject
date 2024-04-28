@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "ACompWithPriority.h"
 #include "HealPotionsComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnUsePotionStartDelegate);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnUsePotionEndDelegate);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class WARRIORAIPROJECT_API UHealPotionsComponent : public UActorComponent
+class WARRIORAIPROJECT_API UHealPotionsComponent : public UACompWithPriority
 {
 	GENERATED_BODY()
 

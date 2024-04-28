@@ -3,12 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "ACompWithPriority.h"
 #include "AttackComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackFinishedDelegate);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class WARRIORAIPROJECT_API UAttackComponent : public UActorComponent
+class WARRIORAIPROJECT_API UAttackComponent : public UACompWithPriority
 {
 	GENERATED_BODY()
 
@@ -30,11 +32,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Attack")
 	void CallAttackFinished();
 
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackDelegate);
+public:
 	UPROPERTY(BlueprintAssignable, Category = "Attack")
 	FOnAttackDelegate OnAttack;
 
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackFinishedDelegate);
 	UPROPERTY(BlueprintAssignable, Category = "Attack")
 	FOnAttackFinishedDelegate OnAttackFinished;
 };
