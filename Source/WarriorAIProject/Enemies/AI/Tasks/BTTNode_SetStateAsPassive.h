@@ -4,20 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "../../EnemyBase.h"
-#include "BTTNode_SetMoveSpeed.generated.h"
+#include "BTTNode_SetStateAsPassive.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIORAIPROJECT_API UBTTNode_SetMoveSpeed : public UBTTaskNode
+class WARRIORAIPROJECT_API UBTTNode_SetStateAsPassive : public UBTTaskNode
 {
 	GENERATED_BODY()
 
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
-
-public:
-	UPROPERTY(EditAnywhere, Category = "MoveSpeed")
-	EMoveSpeed newMoveSpeed;
 };
