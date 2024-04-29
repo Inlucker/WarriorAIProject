@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "HealthComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDeathDelegate);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class WARRIORAIPROJECT_API UHealthComponent : public UActorComponent
@@ -26,7 +27,6 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Health")
 	float maxHealth;
 
-	UPROPERTY(EditAnywhere, Category = "Health")
 	bool isDead;
 
 	void CheckIsDead();
@@ -50,7 +50,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Health")
 	bool IsDead() const;
 
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDeathDelegate);
 	UPROPERTY(BlueprintAssignable, Category = "Health")
 	FOnDeathDelegate OnDeath;
 };
