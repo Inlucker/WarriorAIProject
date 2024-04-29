@@ -3,7 +3,7 @@
 
 #include "BTTNode_DefaultAttack.h"
 #include "AIController.h"
-#include "../../../Components/AttackComponent.h"
+#include "Components/AttackComponent.h"
 
 EBTNodeResult::Type UBTTNode_DefaultAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {

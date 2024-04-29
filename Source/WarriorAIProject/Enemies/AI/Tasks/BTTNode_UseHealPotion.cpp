@@ -3,7 +3,7 @@
 
 #include "BTTNode_UseHealPotion.h"
 #include "AIController.h"
-#include "../../../Components/HealPotionsComponent.h"
+#include "Components/HealPotionsComponent.h"
 
 EBTNodeResult::Type UBTTNode_UseHealPotion::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {

@@ -3,7 +3,7 @@
 
 #include "PlayerHPWidget.h"
 #include "Kismet/GameplayStatics.h"
-#include "../Components/HealthComponent.h"
+#include "Components/HealthComponent.h"
 
 void UPlayerHPWidget::NativeConstruct()
 {

@@ -3,7 +3,7 @@
 
 #include "BTTNode_EquipWeapon.h"
 #include "AIController.h"
-#include "../../../Components/WeaponComponent.h"
+#include "Components/WeaponComponent.h"
 
 
 EBTNodeResult::Type UBTTNode_EquipWeapon::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "../WarriorAIProjectCharacter.h"
+#include "WarriorAIProjectCharacter.h"
 #include "PlayerHPWidget.generated.h"
 
 /**

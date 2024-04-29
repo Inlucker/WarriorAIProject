@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "../../EnemyBase.h"
+#include "Enemies/EnemyBase.h"
 #include "BTTNode_SetMoveSpeed.generated.h"
 
 /**

@@ -5,10 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "EnemyBase.h"
-#include "../Components/HealthComponent.h"
-#include "../Components/AttackComponent.h"
-#include "../Components/WeaponComponent.h"
-#include "../Components/HealPotionsComponent.h"
+#include "Components/HealthComponent.h"
+#include "Components/AttackComponent.h"
+#include "Components/WeaponComponent.h"
+#include "Components/HealPotionsComponent.h"
 #include "WarriorCharacter.generated.h"
 
 UCLASS()

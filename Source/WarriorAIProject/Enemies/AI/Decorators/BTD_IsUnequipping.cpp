@@ -3,7 +3,7 @@
 
 #include "BTD_IsUnequipping.h"
 #include "AIController.h"
-#include "../../../Components/WeaponComponent.h"
+#include "Components/WeaponComponent.h"
 
 bool UBTD_IsUnequipping::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
 {

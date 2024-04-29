@@ -3,7 +3,7 @@
 
 #include "BTTNode_SetStateAsPassive.h"
 #include "AIController.h"
-#include "../AICEnemyBase.h"
+#include "Enemies/AI/AICEnemyBase.h"
 
 EBTNodeResult::Type UBTTNode_SetStateAsPassive::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {

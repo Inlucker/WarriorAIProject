@@ -3,7 +3,7 @@
 
 #include "BTD_IsHPLessThan.h"
 #include "AIController.h"
-#include "../../../Components/HealthComponent.h"
+#include "Components/HealthComponent.h"
 
 bool UBTD_IsHPLessThan::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
 {

@@ -2,7 +2,7 @@
 
 
 #include "BTSeqUseHealPotion.h"
-#include "../../../Components/HealPotionsComponent.h"
+#include "Components/HealPotionsComponent.h"
 
 int UBTSeqUseHealPotion::GetPriority(AAIController* OwnerComp) const
 {

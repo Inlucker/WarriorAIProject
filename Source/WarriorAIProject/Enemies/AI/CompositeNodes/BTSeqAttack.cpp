@@ -2,7 +2,7 @@
 
 
 #include "BTSeqAttack.h"
-#include "../../../Components/AttackComponent.h"
+#include "Components/AttackComponent.h"
 
 int UBTSeqAttack::GetPriority(AAIController* OwnerComp) const
 {
