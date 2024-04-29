@@ -34,25 +34,29 @@ void UWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 void UWeaponComponent::CallEquip()
 {
+	_isEquipping = true;
 	OnEquip.Broadcast();
 }
 
 void UWeaponComponent::CallEquipFinished()
 {
 	OnEquipFinished.Broadcast();
+	_isEquipping = false;
 }
 
 void UWeaponComponent::CallUnequip()
 {
+	_isUnequipping = true;
 	OnUnequip.Broadcast();
 }
 
 void UWeaponComponent::CallUnequipFinished()
 {
 	OnUnequipFinished.Broadcast();
+	_isUnequipping = false;
 }
 
-bool UWeaponComponent::IsEquiped()
+bool UWeaponComponent::IsEquiped() const
 {
 	return _isEquiped;
 }
@@ -60,5 +64,15 @@ bool UWeaponComponent::IsEquiped()
 void UWeaponComponent::SetIsEquiped(bool val)
 {
 	_isEquiped = val;
+}
+
+bool UWeaponComponent::IsEquipping() const
+{
+	return _isEquipping;
+}
+
+bool UWeaponComponent::IsUnequipping() const
+{
+	return _isUnequipping;
 }
 

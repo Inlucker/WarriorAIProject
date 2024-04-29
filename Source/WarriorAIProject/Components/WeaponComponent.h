@@ -42,10 +42,16 @@ public:
 	void CallUnequipFinished();
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
-	bool IsEquiped();
+	bool IsEquiped() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	void SetIsEquiped(bool val);
+
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	bool IsEquipping() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	bool IsUnequipping() const;
 
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Weapon")
@@ -62,4 +68,6 @@ public:
 
 protected:
 	bool _isEquiped;
+	bool _isEquipping;
+	bool _isUnequipping;
 };
