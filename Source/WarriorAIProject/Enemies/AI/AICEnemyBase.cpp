@@ -56,6 +56,7 @@ void AAICEnemyBase::SetStateAsAttacking(AActor* AttackTarget)
   UBlackboardComponent* blackBoard = GetBlackboardComponent();
   if (!blackBoard) return;
   blackBoard->SetValueAsObject(FName(TEXT("AttackTarget")), AttackTarget);
+  blackBoard->SetValueAsVector(FName(TEXT("LastKnownLocation")), AttackTarget->GetActorLocation());
   blackBoard->SetValueAsEnum(FName(TEXT("State")), static_cast<uint8>(EStateEnemyBase::Attacking));
 }
 
@@ -106,9 +107,12 @@ void AAICEnemyBase::HandleSense(AActor* Actor, FAIStimulus Stimulus)
   {
     if (Stimulus.WasSuccessfullySensed())
       SetStateAsAttacking(Actor);
-    else if (!Stimulus.IsExpired())
-      SetStateAsInvestigating(Stimulus.StimulusLocation);
     else
-      SetStateAsPassive();
+    {
+      UBlackboardComponent* blackBoard = GetBlackboardComponent();
+      if (!blackBoard) return;
+      blackBoard->SetValueAsObject(FName(TEXT("AttackTarget")), nullptr);
+      blackBoard->SetValueAsVector(FName(TEXT("LastKnownLocation")), Stimulus.StimulusLocation);
+    }
   }
 }
