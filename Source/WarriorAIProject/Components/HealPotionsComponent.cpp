@@ -12,6 +12,7 @@ UHealPotionsComponent::UHealPotionsComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+	priority = 0;
 }
 
 

@@ -12,6 +12,7 @@ UAttackComponent::UAttackComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+	priority = 5;
 }
 
 
