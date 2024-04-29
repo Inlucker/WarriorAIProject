@@ -6,6 +6,7 @@
 #include "Perception/AISenseConfig_Sight.h"
 #include "Perception/AISenseConfig_Hearing.h"
 #include "Perception/AISenseConfig_Damage.h"
+#include "Components/HealthComponent.h"
 #include "GameFramework/Character.h"
 
 AAICEnemyBase::AAICEnemyBase()
@@ -80,6 +81,10 @@ void AAICEnemyBase::HandleSense(AActor* Actor, FAIStimulus Stimulus)
 {
   EStateEnemyBase state = GetCurrentState();
   if (state == EStateEnemyBase::Dead) return;
+
+  UHealthComponent* healthComponent = Actor->FindComponentByClass<UHealthComponent>();
+  if (healthComponent && healthComponent->IsDead())
+    return;
 
   const APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
   if (PlayerController)
