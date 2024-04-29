@@ -2,6 +2,7 @@
 
 
 #include "HealthComponent.h"
+#include "HealPotionsComponent.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent() : isDead(false)
@@ -47,13 +48,36 @@ void UHealthComponent::TakeDamage(float damageAmount)
 {
 	currentHealth -= std::min(damageAmount, currentHealth);
 	CheckIsDead();
+	if (!isDead &&(currentHealth / maxHealth) <= 0.3)
+	{
+		AActor* owner = GetOwner();
+		if (owner)
+		{
+			UHealPotionsComponent* healPotionsComponent = owner->FindComponentByClass<UHealPotionsComponent>();
+			if (healPotionsComponent)
+				healPotionsComponent->SetPriority(100);
+		}
+	}
 }
 
 void UHealthComponent::Heal(float healAmount)
 {
 	CheckIsDead();
 	if (!isDead)
+	{
 		currentHealth = std::min(currentHealth + healAmount, maxHealth);
+
+		if ((currentHealth / maxHealth) > 0.3)
+		{
+			AActor* owner = GetOwner();
+			if (owner)
+			{
+				UHealPotionsComponent* healPotionsComponent = owner->FindComponentByClass<UHealPotionsComponent>();
+				if (healPotionsComponent)
+					healPotionsComponent->SetPriority(0);
+			}
+		}
+	}
 }
 
 bool UHealthComponent::IsDead() const
